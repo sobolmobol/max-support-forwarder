@@ -17,7 +17,7 @@
 - PyMax 2.4 обновляет выданный сервером token и сам восстанавливает соединение.
 - При отзыве token процесс не падает: он удаляет невалидную сессию и ждёт новый
   SMS-код в одноразовом файле.
-- Логи ротируются и больше не растут бесконечно.
+- Логи ротируются.
 
 ## Как работает маршрутизация
 
@@ -35,7 +35,7 @@
 Требуется Python 3.10 или новее.
 
 ```bash
-git clone <repository-url> max-support-forwarder
+git clone https://github.com/sobolmobol/max-support-forwarder max-support-forwarder
 cd max-support-forwarder
 python -m venv .venv
 ./.venv/bin/python -m pip install --upgrade pip
