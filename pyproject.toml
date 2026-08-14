@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "max-support-forwarder"
+version = "2.0.0"
+description = "Durable two-way MAX support message forwarder"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "aiosqlite>=0.22.1,<0.23",
+    "maxapi-python==2.4.0",
+    "python-dotenv>=1.0,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4,<10",
+    "pytest-asyncio>=1.1,<2",
+    "ruff>=0.12,<1",
+]
+
+[project.scripts]
+max-support-forwarder = "src.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC"]

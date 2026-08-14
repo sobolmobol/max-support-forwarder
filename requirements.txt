@@ -1,0 +1,3 @@
+aiosqlite>=0.22.1,<0.23
+maxapi-python==2.4.0
+python-dotenv>=1.0,<2

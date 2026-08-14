@@ -1,0 +1,21 @@
+[Unit]
+Description=MAX support forwarder
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=maxbot
+WorkingDirectory=/opt/max-support-forwarder
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/max-support-forwarder/.venv/bin/python /opt/max-support-forwarder/run.py
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+KillSignal=SIGINT
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
